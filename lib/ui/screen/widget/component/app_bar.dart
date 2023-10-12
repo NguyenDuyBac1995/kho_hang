@@ -9,11 +9,11 @@ PreferredSize appBarWidget (BuildContext context ,{String? title,VoidCallback? o
     preferredSize:Size.fromHeight(6.5.h),
     child: AppBar(
       automaticallyImplyLeading: false,
-      leadingWidth: 100,
+      leadingWidth: 17.w,
       centerTitle: true,
       leading: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 3.w),
-        child: Image.asset(assetsIcon,fit: BoxFit.fitHeight,),
+        padding: EdgeInsets.only(left: 5.w),
+        child: Image.asset(assetsIcon,fit: BoxFit.fitWidth,),
       ),
       title: Text(
         title ?? '',
@@ -22,12 +22,13 @@ PreferredSize appBarWidget (BuildContext context ,{String? title,VoidCallback? o
       elevation: 0,
       backgroundColor: AppColor.blue,
       actions: [
-        Padding(
-          padding: EdgeInsets.only(right: 6.w),
-          child: IconButton(
-              onPressed: (){
+        Container(
+          padding: EdgeInsets.fromLTRB(0, 1.5.w, 5.w, 1.5.w),
+          width: 15.w,
+          child: GestureDetector(
+              onTap: (){
             Navigator.pop(context);},
-              icon: Image.asset(
+              child: Image.asset(
                 ImagePath.backIcon, fit: BoxFit.fitHeight,
           )),
         )

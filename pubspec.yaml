@@ -44,6 +44,9 @@ dependencies:
   fluttertoast: ^8.1.1
   flutter_bloc: ^7.0.1
   gap: ^3.0.1
+  popover: ^0.2.8+2
+  flutter_barcode_scanner: ^2.0.0
+  get_it: ^7.6.4
 
 dev_dependencies:
   flutter_test:

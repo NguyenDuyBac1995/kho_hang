@@ -27,9 +27,9 @@ class _ImportScreenState extends State<ImportScreen> {
     Item("8500", "8000HPC_014", "29.9340", "20151278921"),
     Item("8500", "8000HPC_014", "29.9340", "20151278921")
   ];
+  
   bool checkValue = false;
   int? selectedColor;
-  double _sliderValue = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

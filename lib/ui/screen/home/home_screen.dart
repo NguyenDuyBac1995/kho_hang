@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:kho_hang/data/datasourch/export_respository.dart';
 import 'package:kho_hang/ui/router/router_generator.dart';
 import 'package:kho_hang/ui/screen/widget/utils/assets.dart';
 import 'package:kho_hang/ui/screen/widget/utils/colors.dart';
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ItemHome(ImagePath.importIcon, "NHẬP HÀNG", AppRouter.routeImport),
     ItemHome(ImagePath.exportIcon, "XUẤT HÀNG", AppRouter.routeExport),
     ItemHome(ImagePath.transferIcon, "CẮT CHUYỂN", AppRouter.routeConvert),
-    ItemHome(ImagePath.qrCodeIcon, "KIỂM TRA MÃ CÂN",""),
+    ItemHome(ImagePath.qrCodeIcon, "KIỂM TRA MÃ CÂN",AppRouter.routeQrCode),
     ItemHome(ImagePath.dropDownIcon, "KIỂM TRA PALLET", ""),
     ItemHome(ImagePath.rackIcon, "KIỂM TRA VỊ TRÍ", ""),
     ItemHome(ImagePath.searchIcon, "TRUY VẤN PALLET", ""),
@@ -31,6 +32,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: PreferredSize(
         preferredSize:Size.fromHeight(6.5.h),
         child: AppBar(
+          // leading: IconButton(
+          //   icon: Icon(Icons.add),
+          //   onPressed: ()async{
+          //     getExportItem();
+          //   },
+          // ),
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text("DANH SÁCH ỨNG DỤNG",
@@ -44,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: GridView.builder(
             shrinkWrap: true,
             itemCount: listItem.length,
-            physics: const NeverScrollableScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             gridDelegate:
             SliverGridDelegateWithFixedCrossAxisCount(
                 mainAxisSpacing: 2.w,
@@ -63,6 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(12)
                   ),
                   child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset( listItem[index].assetsIcon!,height: 13.h,fit: BoxFit.fitHeight),
                       Gap(0.5.h),

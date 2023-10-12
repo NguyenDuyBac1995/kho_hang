@@ -5,6 +5,7 @@ import 'package:kho_hang/ui/screen/export/export_screen.dart';
 import 'package:kho_hang/ui/screen/home/home_screen.dart';
 import 'package:kho_hang/ui/screen/import/import_screen.dart';
 import 'package:kho_hang/ui/screen/login/login_screen.dart';
+import 'package:kho_hang/ui/screen/qr_code/qr_code_screen.dart';
 
 class AppRouter{
  //* Routing List
@@ -13,6 +14,7 @@ class AppRouter{
   static const routeImport = "/import";
   static const routeExport = "/export";
   static const routeConvert = "/convert";
+  static const routeQrCode = "/qrcode";
 
   static Route<dynamic> generateRouter (RouteSettings settings){
     final args = settings.arguments;
@@ -28,6 +30,8 @@ class AppRouter{
         return MaterialPageRoute(builder: (_)=> const ExportScreen());
       case routeConvert:
         return MaterialPageRoute(builder: (_)=> const ConvertScreen());
+      case routeQrCode:
+        return MaterialPageRoute(builder: (_)=> const QrCodeScreen());
       default:
         break;
     }
